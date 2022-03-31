@@ -1,5 +1,4 @@
 using AgendaIatec.Context;
-using AgendaIatec.Controllers;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,10 +28,5 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
-app.MapPost("/", () => {
-    var usuraios = new UsuariosController();
-    usuraios.PostAsync();
-});
 
 app.Run();
