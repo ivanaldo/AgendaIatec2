@@ -25,6 +25,8 @@ namespace AgendaIatec.Models
         [MaxLength(100, ErrorMessage = "Quantidade máxima é 100 caracteres")]
         public string? Local { get; set; }
 
+        public List<ParticipantesModel>? ParticipantesModels { get; set; }
+
 
     }
 }

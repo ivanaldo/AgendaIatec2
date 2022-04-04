@@ -15,5 +15,14 @@ namespace AgendaIatec.Context
         public DbSet<AgendaModel> AgendaModels { get; set; }
 
         public DbSet<ParticipantesModel> Participantes { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ParticipantesModel>(entity =>
+            {
+                entity.HasKey(e => new { e.AgendaId, e.UsuarioId });
+            });
+        }
+
     }
 }
