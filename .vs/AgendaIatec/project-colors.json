@@ -5,6 +5,11 @@
       "ProjectGuid": "11cd7836-0667-41c1-b166-63bb5b31541c",
       "DisplayName": "AgendaIatec",
       "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
     }
   },
   "NextColorIndex": 1

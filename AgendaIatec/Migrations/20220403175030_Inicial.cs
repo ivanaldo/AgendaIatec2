@@ -47,14 +47,12 @@ namespace AgendaIatec.Migrations
                 name: "Participantes",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
                     AgendaId = table.Column<int>(type: "int", nullable: false),
                     UsuarioId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Participantes", x => x.Id);
+                    table.PrimaryKey("PK_Participantes", x => new { x.AgendaId, x.UsuarioId });
                     table.ForeignKey(
                         name: "FK_Participantes_AgendaModels_AgendaId",
                         column: x => x.AgendaId,
@@ -68,11 +66,6 @@ namespace AgendaIatec.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Participantes_AgendaId",
-                table: "Participantes",
-                column: "AgendaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Participantes_UsuarioId",

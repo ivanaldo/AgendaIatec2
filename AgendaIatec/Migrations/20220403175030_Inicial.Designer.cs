@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AgendaIatec.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20220331165118_Inicial")]
+    [Migration("20220403175030_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -60,21 +60,13 @@ namespace AgendaIatec.Migrations
 
             modelBuilder.Entity("AgendaIatec.Models.ParticipantesModel", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
                     b.Property<int>("AgendaId")
                         .HasColumnType("int");
 
                     b.Property<int>("UsuarioId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("AgendaId");
+                    b.HasKey("AgendaId", "UsuarioId");
 
                     b.HasIndex("UsuarioId");
 
@@ -117,13 +109,13 @@ namespace AgendaIatec.Migrations
             modelBuilder.Entity("AgendaIatec.Models.ParticipantesModel", b =>
                 {
                     b.HasOne("AgendaIatec.Models.AgendaModel", "Agenda")
-                        .WithMany()
+                        .WithMany("ParticipantesModels")
                         .HasForeignKey("AgendaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("AgendaIatec.Models.UsuarioModel", "Usuario")
-                        .WithMany()
+                        .WithMany("ParticipantesModels")
                         .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -131,6 +123,16 @@ namespace AgendaIatec.Migrations
                     b.Navigation("Agenda");
 
                     b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("AgendaIatec.Models.AgendaModel", b =>
+                {
+                    b.Navigation("ParticipantesModels");
+                });
+
+            modelBuilder.Entity("AgendaIatec.Models.UsuarioModel", b =>
+                {
+                    b.Navigation("ParticipantesModels");
                 });
 #pragma warning restore 612, 618
         }

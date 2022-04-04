@@ -2,9 +2,10 @@
 {
     public class ParticipantesModel
     {
-        public int Id { get; set; }
-        public AgendaModel Agenda { get; set; }
-        public UsuarioModel Usuario { get; set; }
+        public int AgendaId { get; set; }
+        public AgendaModel? Agenda { get; set; }
+        public int UsuarioId { get; set; }
+        public UsuarioModel? Usuario { get; set; }
 
     }
 }
