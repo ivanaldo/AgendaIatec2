@@ -1,25 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ivanaldo.carvalho\\source\\repos\\AgendaIatec\\AgendaIatec\\AgendaIatec.csproj": {}
+    "C:\\CSharp\\projetos\\AgendaIatec2\\AgendaIatec\\AgendaIatec.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ivanaldo.carvalho\\source\\repos\\AgendaIatec\\AgendaIatec\\AgendaIatec.csproj": {
+    "C:\\CSharp\\projetos\\AgendaIatec2\\AgendaIatec\\AgendaIatec.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ivanaldo.carvalho\\source\\repos\\AgendaIatec\\AgendaIatec\\AgendaIatec.csproj",
+        "projectUniqueName": "C:\\CSharp\\projetos\\AgendaIatec2\\AgendaIatec\\AgendaIatec.csproj",
         "projectName": "AgendaIatec",
-        "projectPath": "C:\\Users\\ivanaldo.carvalho\\source\\repos\\AgendaIatec\\AgendaIatec\\AgendaIatec.csproj",
-        "packagesPath": "C:\\Users\\ivanaldo.carvalho\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ivanaldo.carvalho\\source\\repos\\AgendaIatec\\AgendaIatec\\obj\\",
+        "projectPath": "C:\\CSharp\\projetos\\AgendaIatec2\\AgendaIatec\\AgendaIatec.csproj",
+        "packagesPath": "C:\\Users\\rafael.fernandes\\.nuget\\packages\\",
+        "outputPath": "C:\\CSharp\\projetos\\AgendaIatec2\\AgendaIatec\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ivanaldo.carvalho\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\rafael.fernandes\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -92,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
