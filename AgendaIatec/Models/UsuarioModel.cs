@@ -22,7 +22,8 @@ namespace AgendaIatec.Models
         public string? Senha { get; set; }
 
         public Char Genero { get; set; }
-        public List<ParticipantesModel>? ParticipantesModels { get; set; }
+
+        public virtual ICollection<AgendaModel> AgendaModel { get; set; }
 
     }
 }

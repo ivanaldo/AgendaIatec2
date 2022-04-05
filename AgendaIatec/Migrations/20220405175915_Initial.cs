@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AgendaIatec.Migrations
 {
-    public partial class Inicial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -44,39 +44,39 @@ namespace AgendaIatec.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Participantes",
+                name: "AgendaModelUsuarioModel",
                 columns: table => new
                 {
-                    AgendaId = table.Column<int>(type: "int", nullable: false),
-                    UsuarioId = table.Column<int>(type: "int", nullable: false)
+                    AgendaModelId = table.Column<int>(type: "int", nullable: false),
+                    UsuarioModelId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Participantes", x => new { x.AgendaId, x.UsuarioId });
+                    table.PrimaryKey("PK_AgendaModelUsuarioModel", x => new { x.AgendaModelId, x.UsuarioModelId });
                     table.ForeignKey(
-                        name: "FK_Participantes_AgendaModels_AgendaId",
-                        column: x => x.AgendaId,
+                        name: "FK_AgendaModelUsuarioModel_AgendaModels_AgendaModelId",
+                        column: x => x.AgendaModelId,
                         principalTable: "AgendaModels",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Participantes_UsuarioModels_UsuarioId",
-                        column: x => x.UsuarioId,
+                        name: "FK_AgendaModelUsuarioModel_UsuarioModels_UsuarioModelId",
+                        column: x => x.UsuarioModelId,
                         principalTable: "UsuarioModels",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Participantes_UsuarioId",
-                table: "Participantes",
-                column: "UsuarioId");
+                name: "IX_AgendaModelUsuarioModel_UsuarioModelId",
+                table: "AgendaModelUsuarioModel",
+                column: "UsuarioModelId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Participantes");
+                name: "AgendaModelUsuarioModel");
 
             migrationBuilder.DropTable(
                 name: "AgendaModels");
