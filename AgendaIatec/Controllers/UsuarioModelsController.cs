@@ -1,14 +1,9 @@
 ﻿#nullable disable
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AgendaIatec.Context;
 using AgendaIatec.Models;
-
+using AgendaIatec.Helpers;
 namespace AgendaIatec.Controllers
 {
     [Route("api/[controller]")]
@@ -23,6 +18,7 @@ namespace AgendaIatec.Controllers
         }
 
         // GET: api/UsuarioModels
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<UsuarioModel>>> GetUsuarioModels()
         {
@@ -30,6 +26,7 @@ namespace AgendaIatec.Controllers
         }
 
         // GET: api/UsuarioModels/5
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<UsuarioModel>> GetUsuarioModel(int id)
         {
@@ -45,6 +42,7 @@ namespace AgendaIatec.Controllers
 
         // PUT: api/UsuarioModels/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUsuarioModel(int id, UsuarioModel usuarioModel)
         {
@@ -76,6 +74,7 @@ namespace AgendaIatec.Controllers
 
         // POST: api/UsuarioModels
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<UsuarioModel>> PostUsuarioModel(UsuarioModel usuarioModel)
         {
@@ -86,6 +85,7 @@ namespace AgendaIatec.Controllers
         }
 
         // DELETE: api/UsuarioModels/5
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUsuarioModel(int id)
         {

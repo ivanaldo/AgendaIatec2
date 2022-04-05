@@ -1,13 +1,9 @@
 ﻿#nullable disable
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AgendaIatec.Context;
 using AgendaIatec.Models;
+using AgendaIatec.Helpers;
 
 namespace AgendaIatec.Controllers
 {
@@ -23,6 +19,7 @@ namespace AgendaIatec.Controllers
         }
 
         // GET: api/AgendaModels
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<AgendaModel>>> GetAgendaModels()
         {
@@ -30,6 +27,7 @@ namespace AgendaIatec.Controllers
         }
 
         // GET: api/AgendaModels/5
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<AgendaModel>> GetAgendaModel(int id)
         {
@@ -45,6 +43,7 @@ namespace AgendaIatec.Controllers
 
         // PUT: api/AgendaModels/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAgendaModel(int id, AgendaModel agendaModel)
         {
@@ -76,6 +75,7 @@ namespace AgendaIatec.Controllers
 
         // POST: api/AgendaModels
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<AgendaModel>> PostAgendaModel(AgendaModel agendaModel)
         {
@@ -86,6 +86,7 @@ namespace AgendaIatec.Controllers
         }
 
         // DELETE: api/AgendaModels/5
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAgendaModel(int id)
         {
