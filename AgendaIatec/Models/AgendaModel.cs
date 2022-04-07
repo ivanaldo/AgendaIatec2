@@ -24,7 +24,7 @@ namespace AgendaIatec.Models
         [Required]
         [MaxLength(100, ErrorMessage = "Quantidade máxima é 100 caracteres")]
         public string? Local { get; set; }
-        public virtual ICollection<UsuarioModel> UsuarioModel { get; set; }
+        public List<ParticipantesModel> ParticipantesModel { get; set; }
 
 
     }

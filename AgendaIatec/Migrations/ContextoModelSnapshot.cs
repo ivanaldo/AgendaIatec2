@@ -56,6 +56,29 @@ namespace AgendaIatec.Migrations
                     b.ToTable("AgendaModels");
                 });
 
+            modelBuilder.Entity("AgendaIatec.Models.ParticipantesModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("AgendaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AgendaId");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("ParticipantesModel");
+                });
+
             modelBuilder.Entity("AgendaIatec.Models.UsuarioModel", b =>
                 {
                     b.Property<int>("Id")
@@ -89,34 +112,33 @@ namespace AgendaIatec.Migrations
                     b.ToTable("UsuarioModels");
                 });
 
-            modelBuilder.Entity("AgendaModelUsuarioModel", b =>
+            modelBuilder.Entity("AgendaIatec.Models.ParticipantesModel", b =>
                 {
-                    b.Property<int>("AgendaModelId")
-                        .HasColumnType("int");
+                    b.HasOne("AgendaIatec.Models.AgendaModel", "AgendaModel")
+                        .WithMany("ParticipantesModel")
+                        .HasForeignKey("AgendaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<int>("UsuarioModelId")
-                        .HasColumnType("int");
+                    b.HasOne("AgendaIatec.Models.UsuarioModel", "UsuarioModel")
+                        .WithMany("ParticipantesModel")
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasKey("AgendaModelId", "UsuarioModelId");
+                    b.Navigation("AgendaModel");
 
-                    b.HasIndex("UsuarioModelId");
-
-                    b.ToTable("AgendaModelUsuarioModel");
+                    b.Navigation("UsuarioModel");
                 });
 
-            modelBuilder.Entity("AgendaModelUsuarioModel", b =>
+            modelBuilder.Entity("AgendaIatec.Models.AgendaModel", b =>
                 {
-                    b.HasOne("AgendaIatec.Models.AgendaModel", null)
-                        .WithMany()
-                        .HasForeignKey("AgendaModelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("ParticipantesModel");
+                });
 
-                    b.HasOne("AgendaIatec.Models.UsuarioModel", null)
-                        .WithMany()
-                        .HasForeignKey("UsuarioModelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+            modelBuilder.Entity("AgendaIatec.Models.UsuarioModel", b =>
+                {
+                    b.Navigation("ParticipantesModel");
                 });
 #pragma warning restore 612, 618
         }

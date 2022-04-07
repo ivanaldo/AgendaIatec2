@@ -10,15 +10,26 @@ namespace AgendaIatec.Context
 
         }
 
-        public DbSet<UsuarioModel> UsuarioModels { get; set; }
-
-        public DbSet<AgendaModel> AgendaModels { get; set; }
-
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            // base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<ParticipantesModel>()
+            .HasOne(a => a.AgendaModel)
+            .WithMany(p => p.ParticipantesModel)
+            .HasForeignKey(ai => ai.AgendaId);
+
+            modelBuilder.Entity<ParticipantesModel>()
+            .HasOne(a => a.UsuarioModel)
+            .WithMany(p => p.ParticipantesModel)
+            .HasForeignKey(ai => ai.UsuarioId);
         }
+
+
+        public DbSet<UsuarioModel> UsuarioModels { get; set; }
+
+        public DbSet<AgendaModel> AgendaModels { get; set; }
+        public DbSet<ParticipantesModel> ParticipantesModel { get; set; }
 
     }
 }
