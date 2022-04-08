@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AgendaIatec.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20220407140900_Initial")]
-    partial class Initial
+    [Migration("20220407201628_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

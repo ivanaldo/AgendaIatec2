@@ -20,9 +20,9 @@ namespace AgendaIatec.Context
             .HasForeignKey(ai => ai.AgendaId);
 
             modelBuilder.Entity<ParticipantesModel>()
-            .HasOne(a => a.UsuarioModel)
+            .HasOne(u => u.UsuarioModel)
             .WithMany(p => p.ParticipantesModel)
-            .HasForeignKey(ai => ai.UsuarioId);
+            .HasForeignKey(ui => ui.UsuarioId);
         }
 
 
