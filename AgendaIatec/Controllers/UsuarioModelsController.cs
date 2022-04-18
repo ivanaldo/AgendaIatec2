@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using AgendaIatec.Context;
 using AgendaIatec.Models;
 using AgendaIatec.Helpers;
+using AgendaIatec.DTO;
+
 namespace AgendaIatec.Controllers
 {
     [Route("api/[controller]")]
@@ -18,17 +20,18 @@ namespace AgendaIatec.Controllers
         }
 
         // GET: api/UsuarioModels
-        [Authorize]
+        //[Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<UsuarioModel>>> GetUsuarioModels()
         {
-            return await _context.UsuarioModels.ToListAsync();
+            var lista = await _context.UsuarioModels.Include(b => b.ParticipantesModel).ToListAsync();
+            return lista;
         }
 
         // GET: api/UsuarioModels/5
-        [Authorize]
+        //[Authorize]
         [HttpGet("{id}")]
-        public async Task<ActionResult<UsuarioModel>> GetUsuarioModel(int id)
+        public async Task<ActionResult<UsuarioDTO>> GetUsuarioModel(int id)
         {
             var usuarioModel = await _context.UsuarioModels.FindAsync(id);
 
@@ -36,8 +39,8 @@ namespace AgendaIatec.Controllers
             {
                 return NotFound();
             }
-
-            return usuarioModel;
+            var usuarioDTO = new UsuarioDTO(usuarioModel.Id, usuarioModel.Nome, usuarioModel.Email, usuarioModel.DataNascimento.ToShortDateString(), usuarioModel.Genero.ToString());
+            return usuarioDTO;
         }
 
         // PUT: api/UsuarioModels/5
@@ -74,7 +77,7 @@ namespace AgendaIatec.Controllers
 
         // POST: api/UsuarioModels
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public async Task<ActionResult<UsuarioModel>> PostUsuarioModel(UsuarioModel usuarioModel)
         {

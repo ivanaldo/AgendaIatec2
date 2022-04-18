@@ -20,7 +20,7 @@ public class UserService : IUserService
     // users hardcoded for simplicity, store in a db with hashed passwords in production applications
     private List<UsuarioModel> _users = new List<UsuarioModel>
     {
-        new UsuarioModel { Id = 1, Nome = "nome teste", Email = "email@email.com", Senha = "senha" }
+       // new UsuarioModel { Id = 1, Nome = "nome teste", Email = "email@email.com", Senha = "senha" }
     };
 
     private readonly AppSettings _appSettings;
